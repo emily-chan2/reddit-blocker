@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Reddit Blocker
-// @version      1.0.0
+// @version      1.0.1
 // @description  Blanks out given subreddits and user profiles.
 // @author       michael-chan2
 // @match        *://reddit.com/*
@@ -29,6 +29,12 @@ function getLastPathSegment(url) {
     const questionMarkIndex = url.indexOf("?");
     if (questionMarkIndex !== -1) {
         url = url.substring(0, questionMarkIndex);
+    }
+
+    // Delete hash and anything following
+    const hashIndex = url.indexOf("#");
+    if (hashIndex !== -1) {
+        url = url.substring(0, hashIndex);
     }
 
     // Delete trailing slashes
