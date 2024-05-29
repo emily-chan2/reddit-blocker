@@ -5,7 +5,8 @@ This userscript allows you to block whatever subreddits and/or user profiles you
 
 I wrote this to stop myself from doomscrolling certain subreddits. I decided to add the ability to block users as well since the coding logic was so similar.
 
-If you navigate to a listed page, its content will be replaced with this message:
+If you navigate to a listed page, its content will be replaced with a message like this:
+
 ![Example of blocked page](img/browserScreenshot.png?raw=true)
 
 ## Usage
