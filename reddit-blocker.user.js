@@ -14,12 +14,12 @@
 "use strict";
 
 let SUBREDDITS = [
-    // Put names of subreddits here delimited by commas
+    // Put names of subreddits in quotes delimited by commas
     // Example: 'askreddit', 'funny'
     
 ];
 let USERS = [
-    // Put usernames here delimited by commas
+    // Put usernames in quotes delimited by commas
     // Example: 'spez', 'gallowboob'
     
 ];
@@ -33,13 +33,14 @@ function getLastPathSegment(url) {
         // Remove the empty string from the end
         parts.pop();
     }
-    
+
     return parts.pop(); // Return the last element (the path segment)
 }
 
 function isUserProfile() {
     return window.location.href.includes('reddit.com/user/');
 }
+
 function isSubreddit() {
     return window.location.href.includes('reddit.com/r/');
 }
@@ -52,7 +53,7 @@ function removeEmptyStrings(arr) {
 }
 
 function replacePage() {
-    const redditPageType = isSubreddit() ? `subreddit` : `user profile`
+    const redditPageType = isSubreddit() ? `subreddit` : `user profile`;
     let replacementContent=`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +89,7 @@ function replacePage() {
     <li>Remove the blocked ${redditPageType} from the userscript.</li>
   </ul>
 </body>
-</html>`
+</html>`;
     document.write(replacementContent);
 }
 
