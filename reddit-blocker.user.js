@@ -25,16 +25,20 @@ let USERS = [
 ];
 
 function getLastPathSegment(url) {
-    // Split the URL at the last occurrence of '/' or '?' (whichever comes first)
-    const parts = url.split(/\/|\?/);
-
-    // Check if the last element is an empty string (trailing slash)
-    if (parts[parts.length - 1] === "") {
-        // Remove the empty string from the end
-        parts.pop();
+    // Delete query parameters
+    const questionMarkIndex = url.indexOf("?");
+    if (questionMarkIndex !== -1) {
+        url = url.substring(0, questionMarkIndex);
     }
 
-    return parts.pop(); // Return the last element (the path segment)
+    // Delete trailing slashes
+    while (url.endsWith('/')) {
+        url = url.slice(0, -1);
+    }
+
+    // Return the last element
+    const parts = url.split('/');
+    return parts.pop();
 }
 
 function isUserProfile() {
@@ -95,8 +99,8 @@ function replacePage() {
 
 SUBREDDITS = lowercaseAndRemoveWhitespace(SUBREDDITS);
 USERS = lowercaseAndRemoveWhitespace(USERS);
-SUBREDDITS = removeEmptyStrings(SUBREDDITS)
-USERS = removeEmptyStrings(USERS)
+SUBREDDITS = removeEmptyStrings(SUBREDDITS);
+USERS = removeEmptyStrings(USERS);
 
 if (isSubreddit()) {
     if (SUBREDDITS.includes(getLastPathSegment(window.location.href).toLowerCase())) {
