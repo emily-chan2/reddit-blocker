@@ -2,7 +2,7 @@
 // @name         Reddit Blocker
 // @version      1.0.2
 // @description  Blocks access to given subreddits and user profiles.
-// @author       michael-chan2
+// @author       emily-chan2
 // @match        *://reddit.com/r/*
 // @match        *://reddit.com/user/*
 // @match        *://*.reddit.com/r/*
